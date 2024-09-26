@@ -18,6 +18,6 @@ jobs:
           
       - name: Push Docker image
         run: |
-          echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+          echo "${{ secrets.veera9100 }}" | docker login -u "${{ secrets.veera0 }}" --password-stdin
           docker tag your_image_name your_dockerhub_username/your_image_name:latest  # Replace 'your_dockerhub_username' and 'your_image_name' accordingly
           docker push your_dockerhub_username/your_image_name:latest  # Same replacements as above
