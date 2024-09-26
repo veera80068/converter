@@ -1,7 +1,6 @@
 import os
 from flask import Flask, request, render_template, send_from_directory
 from urllib.parse import quote as url_quote
-from werkzeug.urls import url_quote
 from docx2pdf import convert
 from pdf2docx import Converter
 import pythoncom
