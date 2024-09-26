@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-center">Document Converter</h1>
+        <p class="text-center">Convert DOCX to PDF or PDF to DOCX with ease.</p>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <form id="docx-to-pdf-form" action="/convert_docx_to_pdf" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="docx_file">Choose DOCX File to Convert to PDF</label>
+                        <input type="file" class="form-control-file" id="docx_file" name="docx_file" accept=".docx" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Convert to PDF</button>
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <form id="pdf-to-docx-form" action="/convert_pdf_to_docx" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="pdf_file">Choose PDF File to Convert to DOCX</label>
+                        <input type="file" class="form-control-file" id="pdf_file" name="pdf_file" accept=".pdf" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Convert to DOCX</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="error-message" class="alert alert-danger mt-3" style="display: none;"></div>
+    </div>
+
+    <script>
+        // Add JavaScript to display errors dynamically
+        const errorMessage = document.getElementById('error-message');
+
+        document.getElementById('docx-to-pdf-form').addEventListener('submit', function(event) {
+            errorMessage.style.display = 'none';
+        });
+
+        document.getElementById('pdf-to-docx-form').addEventListener('submit', function(event) {
+            errorMessage.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
