@@ -1,0 +1,23 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Build Docker image
+        run: |
+          docker build -t your_image_name .  # Replace 'your_image_name' with the name you want for your Docker image
+          
+      - name: Push Docker image
+        run: |
+          echo "${{ secrets.veera9100 }}" | docker login -u "${{ secrets.veera0 }}" --password-stdin
+          docker tag your_image_name your_dockerhub_username/your_image_name:latest  # Replace 'your_dockerhub_username' and 'your_image_name' accordingly
+          docker push your_dockerhub_username/your_image_name:latest  # Same replacements as above
